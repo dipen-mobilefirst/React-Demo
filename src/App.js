@@ -7,7 +7,7 @@ import PrivateRoute from './routes/PrivateRoute';
 import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import Task from './pages/task';
-
+import Viewtask from './pages/viewTask';
 
 class App extends Component{
   render(){
@@ -17,6 +17,7 @@ class App extends Component{
           <PublicRoute restricted={false} component={Login} path="/" exact />
           <PrivateRoute component={Dashboard} path="/dashboard" />
           <PrivateRoute component={Task} path="/task" />
+          <PrivateRoute component={Viewtask} path="/view-task" />
         </Switch>
       </BrowserRouter>
     )

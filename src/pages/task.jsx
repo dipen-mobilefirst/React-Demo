@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Link } from 'react-router-dom';
 import Navigation from '../components/navigation.component';
 
 class Task extends Component{
@@ -10,9 +11,10 @@ class Task extends Component{
             startTime: "",
             endTime: "",
             fields: {},
-            errors: {}
+            errors: {},
         }
         this.handleValidation = this.handleValidation.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleValidation(e){
@@ -43,9 +45,22 @@ class Task extends Component{
     
          this.setState({errors: errors})
          if(formIsValid){
+             this.handleSubmit(e)
              this.props.history.push('/view-task');
          }
-    
+      }
+
+      handleSubmit = (e) => {
+          let data = 
+              {
+              name: this.state.name,
+              description: this.state.description,
+              startTime: this.state.startTime,
+              endTime: this.state.endTime
+          }
+
+          const json = JSON.stringify(data);
+          localStorage.setItem("data",json);
       }
 
     render(){
@@ -54,7 +69,9 @@ class Task extends Component{
                 <Navigation />
                 <h4 className="text-center">Welcome to Task</h4>
                 <div className="container">
-                    <h5 className="text-center pt-5">Add Task</h5>
+                    <p className="text-center">
+                    <h5 className="text-center pt-5" style={{display: 'inline',margin:'5%'}}>Add Task</h5>
+                    <Link to="/view-task" className="btn btn-info btn-md" style={{float: 'right'}}>view task</Link></p>
                     <div className="row justify-content-center align-items-center">
                         <div className="col-md-6">
                             <div className="col-md-12"></div>
