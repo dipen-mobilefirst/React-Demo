@@ -8,6 +8,7 @@ import Login from './pages/login';
 import Dashboard from './pages/dashboard';
 import Task from './pages/task';
 import Viewtask from './pages/viewTask';
+import Jokes from './pages/jokes';
 
 class App extends Component{
   render(){
@@ -18,6 +19,7 @@ class App extends Component{
           <PrivateRoute component={Dashboard} path="/dashboard" />
           <PrivateRoute component={Task} path="/task" />
           <PrivateRoute component={Viewtask} path="/view-task" />
+          <PrivateRoute component={Jokes} path="/jokes" />
         </Switch>
       </BrowserRouter>
     )

@@ -51,6 +51,7 @@ class Task extends Component{
       }
 
       handleSubmit = (e) => {
+        e.preventDefault()
           let data = 
               {
               name: this.state.name,

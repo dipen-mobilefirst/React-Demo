@@ -44,3 +44,7 @@
   height: 75px;
   position: absolute;
 }
+
+.loader{
+  margin: 0 auto;
+}

@@ -2,8 +2,9 @@ import React, {Component} from 'react';
 import Navigation from '../components/navigation.component';
 import '../../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import '../../node_modules/jquery/dist/jquery.min.js';
-import "../../node_modules/datatables.net-dt/js/dataTables.dataTables"
-import "../../node_modules/datatables.net-dt/css/jquery.dataTables.min.css"
+import "../../node_modules/datatables.net-dt/js/dataTables.dataTables";
+import "../../node_modules/datatables.net-dt/css/jquery.dataTables.min.css";
+import "../../node_modules/font-awesome/css/font-awesome.min.css";
 import $ from 'jquery';
 
 class Viewtask extends Component{
@@ -41,13 +42,13 @@ class Viewtask extends Component{
                 {
                     this.state.data.map((task,index)=>{
                         return(
-                            <tr>
+                            <tr key={index}>
                                 <td>{index+1}</td>
                                 <td>{task.name}</td>
                                 <td>{task.description}</td>
                                 <td>{task.startTime}</td>
                                 <td>{task.endTime}</td>
-                                <td><i class="fas fa-trash-alt"></i></td>
+                                <td><button className="btn"><i className="fa fa-trash"></i></button> </td>
                             </tr>
                         )
                     })
