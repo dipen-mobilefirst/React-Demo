@@ -12,6 +12,7 @@ class Task extends Component{
             endTime: "",
             fields: {},
             errors: {},
+            add_task: JSON.parse(localStorage.getItem("data")) || []
         }
         this.handleValidation = this.handleValidation.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -60,8 +61,9 @@ class Task extends Component{
               endTime: this.state.endTime
           }
 
-          const json = JSON.stringify(data);
-          localStorage.setItem("data",json);
+          this.state.add_task.push(data)
+          
+          localStorage.setItem("data",JSON.stringify(this.state.add_task));
       }
 
     render(){
