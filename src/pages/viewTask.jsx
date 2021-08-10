@@ -11,9 +11,10 @@ class Viewtask extends Component{
     constructor(props){
         super(props);
         this.state={
-            data: JSON.parse(localStorage.getItem("data"))
+            data: JSON.parse(localStorage.getItem("data")),
+            newData: []
         }
-        //this.deleteData = this.deleteData.bind(this);
+        this.deleteData = this.deleteData.bind(this);
     }
     componentDidMount(){
 
@@ -22,11 +23,13 @@ class Viewtask extends Component{
         });
     }
 
-    // deleteData = (index) =>{
-    //     var key = index;
-    //     console.log("key",key)
-    //     localStorage.removeItem(key)
-    // }
+    deleteData(index){
+        var key = index;
+        console.log("key",key)
+        var newData = JSON.parse(localStorage.getItem("data"));
+        newData.splice(index,1);
+        localStorage.setItem("data",JSON.stringify(newData))  
+    }
 
     render(){
         console.log(this.state.data)
@@ -57,7 +60,7 @@ class Viewtask extends Component{
                                 <td>{task.description}</td>
                                 <td>{task.startTime}</td>
                                 <td>{task.endTime}</td>
-                                <td><button className="btn" ><i className="fa fa-trash"></i></button> </td>
+                                <td><button className="btn" onClick={this.deleteData.bind(this,index)}><i className="fa fa-trash"></i></button> </td>
                             </tr>
                         )
                     })

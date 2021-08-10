@@ -64,7 +64,7 @@ class Login extends Component{
                             <form className="form" onSubmit={this.handleValidation} method="post">
                             <h3 className="text-center text-info">Login</h3>
                                 <div className="form-group">
-                                    <lable>USerName</lable>
+                                    <lable>UserName</lable>
                                     <input type="text" name="username" placeholder="username" className="form-control" onChange={(e)=>{this.setState({username:e.target.value})}}/>
                                     <span style={{color: "red"}}>{this.state.errors["username"]}</span>
                                 </div>
